@@ -1,8 +1,8 @@
 const main = async () => {
-  const marketContractFactory = await hre.ethers.getContractFactory("Market");
-  const marketContract = await marketContractFactory.deploy();
-  await marketContract.deployed();
-  console.log("Contract deployed to:", marketContract.address);
+  const brainlyContractFactory = await hre.ethers.getContractFactory("Brainly");
+  const brainlyContract = await brainlyContractFactory.deploy();
+  await brainlyContract.deployed();
+  console.log("Contract deployed to:", brainlyContract.address);
 };
 
 const runMain = async () => {
