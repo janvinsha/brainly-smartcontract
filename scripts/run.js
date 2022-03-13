@@ -23,6 +23,10 @@ const main = async () => {
 
   txn = await brainlyContract.getUser(owner.address);
   console.log(txn);
+
+  txn = await brainlyContract.fetchUserAddresses();
+  console.log(txn);
+
   // Wait for it to be mined.
 };
 

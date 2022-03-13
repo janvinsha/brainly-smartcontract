@@ -88,8 +88,12 @@ contract Brainly is ERC721URIStorage {
       function getName(address userAddress) public view returns(string memory){
       return Names[userAddress];
       }
-      
+
        function setName(string memory name) public{
            Names[msg.sender] = name;
+      }
+
+      function fetchUserAddresses() public view returns(address[] memory){
+          return userAddresses;
       }
 }
