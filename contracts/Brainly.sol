@@ -15,6 +15,8 @@ contract Brainly is ERC721URIStorage {
 
       address[] userAddresses;
  event NewEpicNFTMinted(address sender, uint256 tokenId);
+  event SetName(string name);
+   event Publish(uint256 level);
     constructor() ERC721("Brainly Membership Token", "BMT") {
         // _setBaseURI("ipfs://");
     }
@@ -69,6 +71,7 @@ contract Brainly is ERC721URIStorage {
                     msg.sender,
                 _level
             );
+            emit Publish(_level);
       }
 
           function isMember() public view returns (bool _bool){
@@ -91,6 +94,7 @@ contract Brainly is ERC721URIStorage {
 
        function setName(string memory name) public{
            Names[msg.sender] = name;
+           emit SetName(Names[msg.sender]);
       }
 
       function fetchUserAddresses() public view returns(address[] memory){
