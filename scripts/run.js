@@ -10,11 +10,18 @@ const main = async () => {
   // // Wait for it to be mined.
   // await txn.wait();
 
-  let txn = await brainlyContract.connect(superCoder).mintToken();
+  let txn = await brainlyContract.connect(owner).mintToken();
   console.log(txn);
-  txn = await brainlyContract.connect(superCoder).isMember();
+  txn = await brainlyContract.connect(owner).isMember();
   console.log(txn);
-  txn = await brainlyContract.fetchUsers();
+
+  txn = await brainlyContract.connect(owner).setName("BIG BOY");
+  console.log(txn);
+
+  txn = await brainlyContract.getName(owner.address);
+  console.log(txn);
+
+  txn = await brainlyContract.getUser(owner.address);
   console.log(txn);
   // Wait for it to be mined.
 };
